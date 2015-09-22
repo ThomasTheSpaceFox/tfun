@@ -1,0 +1,4 @@
+/usr/local/tfun/games/intro.sh
+/usr/local/tfun/games/intro.sh
+/usr/local/tfun/games
+/usr/local/tfun/games/fte

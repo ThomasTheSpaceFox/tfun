@@ -1,0 +1,13 @@
+defaultimageviewer
+mplayer
+urxvt
+dillo
+
+defaultmediaplayer
+
+
+NOTES
+line 1 = image viewer to use
+line 2 = media player to use
+line 3 = terminal emulator used by "play-text-fun-term.sh"
+line 4 = web browser used by the URL-CALL command.

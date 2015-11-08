@@ -190,6 +190,21 @@ do
     CNT1=$(echo "$QCOUNT+1" | bc)
     QCOUNT=$CNT1
   fi
+  if [ "$(sed ''$QCOUNT'q;d' $FNAME1)" = "TIMGCALL" ]; then
+    CNT1=$(echo "$QCOUNT+1" | bc)
+    QCOUNT=$CNT1
+    if test -e "$MEDIADIR/$(sed ''$QCOUNT'q;d' $FNAME1)"; then
+      echo "draw T-IMG terminal image. $(sed ''$QCOUNT'q;d' $FNAME1)" >> $MEDIADIR/debug.txt
+      $WHEREAMI/T-IMG.sh "$MEDIADIR/$(sed ''$QCOUNT'q;d' $FNAME1)"
+      CNT1=$(echo "$QCOUNT+1" | bc)
+      QCOUNT=$CNT1
+    else
+      echo "NONEXIST ERROR: the T-IMG image file $MEDIADIR/$(sed ''$QCOUNT'q;d' $FNAME1) is NON-EXISTANT!"
+      echo "NONEXIST ERROR: the T-IMG image file $MEDIADIR/$(sed ''$QCOUNT'q;d' $FNAME1) is NON-EXISTANT!" >> $MEDIADIR/debug.txt
+    fi
+    CNT1=$(echo "$QCOUNT+1" | bc)
+    QCOUNT=$CNT1
+  fi
   if [ "$(sed ''$QCOUNT'q;d' $FNAME1)" = "CLEAR" ]; then
     CNT1=$(echo "$QCOUNT+1" | bc)
     QCOUNT=$CNT1
@@ -201,6 +216,20 @@ do
     QCOUNT=$CNT1
     echo "BELL" >> $MEDIADIR/debug.txt
     echo -e -n "\a"
+  fi
+  if [ "$(sed ''$QCOUNT'q;d' $FNAME1)" = "SKIP" ]; then
+    CNT1=$(echo "$QCOUNT+1" | bc)
+    QCOUNT=$CNT1
+    echo "Skip section:" >> $MEDIADIR/debug.txt
+    until [ "$(sed ''$QCOUNT'q;d' $FNAME1)" = "END-SKIP" ]
+    do
+      echo "$(sed ''$QCOUNT'q;d' $FNAME1)" >> $MEDIADIR/debug.txt
+      CNT1=$(echo "$QCOUNT+1" | bc)
+      QCOUNT=$CNT1
+    done
+    echo "end of skiped scection" >> $MEDIADIR/debug.txt
+    CNT1=$(echo "$QCOUNT+1" | bc)
+    QCOUNT=$CNT1
   fi
 done
 echo "issue END (END-OF-PROGRAM)" >> $MEDIADIR/debug.txt

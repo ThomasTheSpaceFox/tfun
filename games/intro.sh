@@ -14,6 +14,10 @@ TXT-ART
 |_________________________________________________|
 END-TXT-ART
 BELL
+SKIP
+this is a sample of "SKIP". it is a implimentation of commenting out sections.
+commented out sections are written to the debug file.
+END-SKIP
 MEDIAPLAY
 albus.mp3
 END-MEDIAPLAY
@@ -21,6 +25,8 @@ WAIT-NULL
 press enter to continue
 Nullvalue
 END-WAIT-NULL
+TIMGCALL
+title.TIMG
 CLEAR
 QUIZ-Q
 fill the blank: text ____

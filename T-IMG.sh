@@ -124,9 +124,9 @@ RESET='\033[0m'
 #
 #uncomment this line, and point it to the T-IMG image you wish to draw,
 #such as testing to see how a T-IMG image looks:
-file="$WHEREAMI/palet.TIMG"
+#file="$WHEREAMI/palet.TIMG"
 #or uncomment this line to call T-IMG.sh from within another script/terminal:
-#file="$1"
+file="$1"
 # character-pixel strings used:
 echo "$(sed ''1'q;d' $file)"
 CHARMODE=$(sed ''2'q;d' $file)
